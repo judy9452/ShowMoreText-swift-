@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E80DEE31C16A52B002CD9C3 /* TextEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80DEE21C16A52B002CD9C3 /* TextEntity.swift */; };
+		4E80DEE51C16DD6F002CD9C3 /* TextListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80DEE41C16DD6F002CD9C3 /* TextListCell.swift */; };
 		4EF52B031C166E6E008DDD0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF52B021C166E6E008DDD0D /* AppDelegate.swift */; };
 		4EF52B051C166E6E008DDD0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF52B041C166E6E008DDD0D /* ViewController.swift */; };
 		4EF52B081C166E6E008DDD0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF52B061C166E6E008DDD0D /* Main.storyboard */; };
@@ -14,6 +16,7 @@
 		4EF52B0D1C166E6E008DDD0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF52B0B1C166E6E008DDD0D /* LaunchScreen.storyboard */; };
 		4EF52B181C166E6E008DDD0D /* ShowMoreTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF52B171C166E6E008DDD0D /* ShowMoreTextTests.swift */; };
 		4EF52B231C166E6F008DDD0D /* ShowMoreTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF52B221C166E6F008DDD0D /* ShowMoreTextUITests.swift */; };
+		4EF52B311C16784B008DDD0D /* TextInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF52B301C16784B008DDD0D /* TextInfo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E80DEE21C16A52B002CD9C3 /* TextEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEntity.swift; sourceTree = "<group>"; };
+		4E80DEE41C16DD6F002CD9C3 /* TextListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextListCell.swift; sourceTree = "<group>"; };
 		4EF52AFF1C166E6E008DDD0D /* ShowMoreText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowMoreText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF52B021C166E6E008DDD0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF52B041C166E6E008DDD0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		4EF52B1E1C166E6E008DDD0D /* ShowMoreTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowMoreTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF52B221C166E6F008DDD0D /* ShowMoreTextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreTextUITests.swift; sourceTree = "<group>"; };
 		4EF52B241C166E6F008DDD0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EF52B301C16784B008DDD0D /* TextInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TextInfo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +105,13 @@
 			children = (
 				4EF52B021C166E6E008DDD0D /* AppDelegate.swift */,
 				4EF52B041C166E6E008DDD0D /* ViewController.swift */,
+				4E80DEE21C16A52B002CD9C3 /* TextEntity.swift */,
+				4E80DEE41C16DD6F002CD9C3 /* TextListCell.swift */,
 				4EF52B061C166E6E008DDD0D /* Main.storyboard */,
 				4EF52B091C166E6E008DDD0D /* Assets.xcassets */,
 				4EF52B0B1C166E6E008DDD0D /* LaunchScreen.storyboard */,
 				4EF52B0E1C166E6E008DDD0D /* Info.plist */,
+				4EF52B301C16784B008DDD0D /* TextInfo.json */,
 			);
 			path = ShowMoreText;
 			sourceTree = "<group>";
@@ -231,6 +240,7 @@
 			files = (
 				4EF52B0D1C166E6E008DDD0D /* LaunchScreen.storyboard in Resources */,
 				4EF52B0A1C166E6E008DDD0D /* Assets.xcassets in Resources */,
+				4EF52B311C16784B008DDD0D /* TextInfo.json in Resources */,
 				4EF52B081C166E6E008DDD0D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +266,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E80DEE31C16A52B002CD9C3 /* TextEntity.swift in Sources */,
 				4EF52B051C166E6E008DDD0D /* ViewController.swift in Sources */,
+				4E80DEE51C16DD6F002CD9C3 /* TextListCell.swift in Sources */,
 				4EF52B031C166E6E008DDD0D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +494,7 @@
 				4EF52B291C166E6F008DDD0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EF52B2A1C166E6F008DDD0D /* Build configuration list for PBXNativeTarget "ShowMoreTextTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +503,7 @@
 				4EF52B2C1C166E6F008DDD0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EF52B2D1C166E6F008DDD0D /* Build configuration list for PBXNativeTarget "ShowMoreTextUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +512,7 @@
 				4EF52B2F1C166E6F008DDD0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
