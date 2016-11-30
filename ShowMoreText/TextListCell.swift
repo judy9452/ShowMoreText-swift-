@@ -7,10 +7,10 @@
 //
 
 import UIKit
-let screenHeight = UIScreen.mainScreen().bounds.height
-let screenWidth  = UIScreen.mainScreen().bounds.width
+let screenHeight = UIScreen.main.bounds.height
+let screenWidth  = UIScreen.main.bounds.width
     ///类似oc中的typedef
-typealias showMoreTextClosure = (cell:UITableViewCell)->Void
+typealias showMoreTextClosure = (_ cell:UITableViewCell)->Void
 class TextListCell: UITableViewCell {
     var textTitle:UILabel!
     var textContent:UILabel!
@@ -19,16 +19,16 @@ class TextListCell: UITableViewCell {
         ///声明一个闭包
     var myClosure:showMoreTextClosure?
     
-    static func cellDefaultHeight(entity:TextEntity)->CGFloat{
+    static func cellDefaultHeight(_ entity:TextEntity)->CGFloat{
         return 85.0
     }
     
-    static func cellMoreHeight(entity:TextEntity)->CGFloat{
-        let attribute = [NSFontAttributeName:UIFont.systemFontOfSize(16)]
-        let option:NSStringDrawingOptions = NSStringDrawingOptions.UsesLineFragmentOrigin
-        let text: NSString = NSString(CString: entity.textContent!.cStringUsingEncoding(NSUTF8StringEncoding)!,
-            encoding: NSUTF8StringEncoding)!
-        let frame:CGRect = text.boundingRectWithSize(CGSizeMake(screenWidth-30, 3000), options: option, attributes: attribute, context: nil)
+    static func cellMoreHeight(_ entity:TextEntity)->CGFloat{
+        let attribute = [NSFontAttributeName:UIFont.systemFont(ofSize: 16)]
+        let option:NSStringDrawingOptions = NSStringDrawingOptions.usesLineFragmentOrigin
+        let text: NSString = NSString(cString: entity.textContent!.cString(using: String.Encoding.utf8)!,
+            encoding: String.Encoding.utf8.rawValue)!
+        let frame:CGRect = text.boundingRect(with: CGSize(width: screenWidth-30, height: 3000), options: option, attributes: attribute, context: nil)
         return frame.size.height+50;
     }
     
@@ -39,22 +39,22 @@ class TextListCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?)
     {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        textTitle = UILabel(frame: CGRectMake(15, 5, 140, 20))
-        textTitle.textColor = UIColor.blackColor()
-        textTitle.font = UIFont.systemFontOfSize(18)
+        textTitle = UILabel(frame: CGRect(x: 15, y: 5, width: 140, height: 20))
+        textTitle.textColor = UIColor.black
+        textTitle.font = UIFont.systemFont(ofSize: 18)
         self.contentView.addSubview(textTitle)
         
-        textContent = UILabel(frame: CGRectMake(15, 30,screenWidth - 30 , 20))
-        textContent.textColor = UIColor.blackColor()
-        textContent.font = UIFont.systemFontOfSize(16)
+        textContent = UILabel(frame: CGRect(x: 15, y: 30,width: screenWidth - 30 , height: 20))
+        textContent.textColor = UIColor.black
+        textContent.font = UIFont.systemFont(ofSize: 16)
         textContent.numberOfLines = 0
         self.contentView.addSubview(textContent)
         
-        moreTextBtn = UIButton(type: UIButtonType.Custom)
-        moreTextBtn.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-        moreTextBtn.frame = CGRectMake(screenWidth - 50, 5, 40, 20)
+        moreTextBtn = UIButton(type: UIButtonType.custom)
+        moreTextBtn.setTitleColor(UIColor.gray, for: UIControlState())
+        moreTextBtn.frame = CGRect(x: screenWidth - 50, y: 5, width: 40, height: 20)
         self.contentView.addSubview(moreTextBtn)
-        moreTextBtn.addTarget(self, action: "showMoreText", forControlEvents: UIControlEvents.TouchUpInside)
+        moreTextBtn.addTarget(self, action: #selector(TextListCell.showMoreText), for: UIControlEvents.touchUpInside)
     }
     
     override func layoutSubviews() {
@@ -65,18 +65,18 @@ class TextListCell: UITableViewCell {
         if entity.isShowText == true
         {
             let attribute = [NSFontAttributeName:textContent.font]
-            let option:NSStringDrawingOptions = NSStringDrawingOptions.UsesLineFragmentOrigin
-            let text: NSString = NSString(CString: entity.textContent!.cStringUsingEncoding(NSUTF8StringEncoding)!,
-                encoding: NSUTF8StringEncoding)!
-            let frame:CGRect = text.boundingRectWithSize(CGSizeMake(screenWidth-30, 3000), options: option, attributes: attribute, context: nil)
+            let option:NSStringDrawingOptions = NSStringDrawingOptions.usesLineFragmentOrigin
+            let text: NSString = NSString(cString: entity.textContent!.cString(using: String.Encoding.utf8)!,
+                encoding: String.Encoding.utf8.rawValue)!
+            let frame:CGRect = text.boundingRect(with: CGSize(width: screenWidth-30, height: 3000), options: option, attributes: attribute, context: nil)
             let height = frame.size.height
-            textContent.frame = CGRectMake(15, 30, screenWidth-30, height)
-            moreTextBtn.setTitle("收起", forState: UIControlState.Normal)
+            textContent.frame = CGRect(x: 15, y: 30, width: screenWidth-30, height: height)
+            moreTextBtn.setTitle("收起", for: UIControlState())
         }
         else
         {
-            moreTextBtn.setTitle("展开", forState: UIControlState.Normal)
-            textContent.frame = CGRectMake(15, 30, screenWidth - 30, 35)
+            moreTextBtn.setTitle("展开", for: UIControlState())
+            textContent.frame = CGRect(x: 15, y: 30, width: screenWidth - 30, height: 35)
         }
     }
     
@@ -84,7 +84,7 @@ class TextListCell: UITableViewCell {
     {
         entity.isShowText = !entity.isShowText
         if (myClosure != nil){
-            myClosure!(cell: self)
+            myClosure!(self)
         }
     }
 }
